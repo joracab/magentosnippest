@@ -1,0 +1,11 @@
+ BSe
+Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS);
+// http://magesite.extension/js/
+Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+// http://magesite.extension/index.php/
+Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+// http://magesite.extension/media/
+Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+// http://magesite.extension/skin/
+Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+// http://magesite.extension/

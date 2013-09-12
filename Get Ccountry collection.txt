@@ -1,0 +1,10 @@
+**
+ * Get region collection
+ * @param string $countryCode
+ * @return array
+ */
+public function getRegionCollection($countryCode)
+{
+    $regionCollection = Mage::getModel('directory/region_api')->items($countryCode);
+    return $regionCollection;
+}

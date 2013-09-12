@@ -1,0 +1,371 @@
+jquery
+roundcorners
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+    <!-- JQUERY Framework -->
+    <script type="text/javascript" src="js/lib/jquery/jquery-compressed.js"></script>
+    <script type="text/javascript" src="js/jquery.curvycorners.packed.js"></script>
+ 
+    <script type="text/javascript">
+    $(document).ready(function(){                       
+        //Rounded Corners
+        $("#feature1").corner();
+    }); 
+    </script>
+    <style type="text/css" media="screen">
+        #feature1{
+            float: left;
+            height: 6em;
+            width: 14em;
+            min-height: 12em;
+            margin-right: 1.5em;
+            margin-bottom: 2em;
+            padding: 0 1em;
+        }       
+    </style>
+</head>
+<body>
+     
+	 dropdown menu
+	 
+	 /*
+ * AllProWebMenu - jQuery menu widget
+ */
+ 
+;(function($){
+    $.fn.superfish = function(op){
+ 
+        var sf = $.fn.superfish,
+            c = sf.c,
+            $arrow = $(['<span class="',c.arrowClass,'"> &amp;#187;</span>'].join('')),
+            over = function(){
+                var $$ = $(this), menu = getMenu($$);
+                clearTimeout(menu.sfTimer);
+                $$.showSuperfishUl().siblings().hideSuperfishUl();
+            },
+            out = function(){
+                var $$ = $(this), menu = getMenu($$), o = sf.op;
+                clearTimeout(menu.sfTimer);
+                menu.sfTimer=setTimeout(function(){
+                    o.retainPath=($.inArray($$[0],o.$path)>-1);
+                    $$.hideSuperfishUl();
+                    if (o.$path.length &amp;&amp; $$.parents(['li.',o.hoverClass].join('')).length<1){over.call(o.$path);}
+                },o.delay); 
+            },
+            getMenu = function($menu){
+                var menu = $menu.parents(['ul.',c.menuClass,':first'].join(''))[0];
+                sf.op = sf.o[menu.serial];
+                return menu;
+            },
+            addArrow = function($a){ $a.addClass(c.anchorClass).append($arrow.clone()); };
+             
+        return this.each(function() {
+            var s = this.serial = sf.o.length;
+            var o = $.extend({},sf.defaults,op);
+            o.$path = $('li.'+o.pathClass,this).slice(0,o.pathLevels).each(function(){
+                $(this).addClass([o.hoverClass,c.bcClass].join(' '))
+                    .filter('li:has(ul)').removeClass(o.pathClass);
+            });
+            sf.o[s] = sf.op = o;
+             
+            $('li:has(ul)',this)[($.fn.hoverIntent &amp;&amp; !o.disableHI) ? 'hoverIntent' : 'hover'](over,out).each(function() {
+                if (o.autoArrows) addArrow( $('>a:first-child',this) );
+            })
+            .not('.'+c.bcClass)
+                .hideSuperfishUl();
+             
+            var $a = $('a',this);
+            $a.each(function(i){
+                var $li = $a.eq(i).parents('li');
+                $a.eq(i).focus(function(){over.call($li);}).blur(function(){out.call($li);});
+            });
+            o.onInit.call(this);
+             
+        }).each(function() {
+            var menuClasses = [c.menuClass];
+            if (sf.op.dropShadows  &amp;&amp; !($.browser.msie &amp;&amp; $.browser.version < 7)) menuClasses.push(c.shadowClass);
+            $(this).addClass(menuClasses.join(' '));
+        });
+    };
+ 
+    var sf = $.fn.superfish;
+    sf.o = [];
+    sf.op = {};
+    sf.IE7fix = function(){
+        var o = sf.op;
+        if ($.browser.msie &amp;&amp; $.browser.version > 6 &amp;&amp; o.dropShadows &amp;&amp; o.animation.opacity!=undefined)
+            this.toggleClass(sf.c.shadowClass+'-off');
+        };
+    sf.c = {
+        bcClass     : 'sf-breadcrumb',
+        menuClass   : 'sf-js-enabled',
+        anchorClass : 'sf-with-ul',
+        arrowClass  : 'sf-sub-indicator',
+        shadowClass : 'sf-shadow'
+    };
+    sf.defaults = {
+        hoverClass  : 'sfHover',
+        pathClass   : 'overideThisToUse',
+        pathLevels  : 3,
+        delay       : 1500,
+        animation   : {opacity:'show'},
+        speed       : 'fast',
+        autoArrows  : false,
+        dropShadows : false,
+        disableHI   : false,        // true disables hoverIntent detection
+        onInit      : function(){}, // callback functions
+        onBeforeShow: function(){},
+        onShow      : function(){},
+        onHide      : function(){}
+    };
+     
+    $.fn.extend({
+        hideSuperfishUl : function(){
+            var o = sf.op,
+                not = (o.retainPath===true) ? o.$path : '';
+            o.retainPath = false;
+            var $ul = $(['li.',o.hoverClass].join(''),this).add(this).not(not).removeClass(o.hoverClass)
+                    .find('>ul').hide().css('visibility','hidden');
+            o.onHide.call($ul);
+            return this;
+        },
+        showSuperfishUl : function(){
+            var o = sf.op,
+                sh = sf.c.shadowClass+'-off',
+                $ul = this.addClass(o.hoverClass)
+                    .find('>ul:hidden').css('visibility','visible');
+            sf.IE7fix.call($ul);
+            o.onBeforeShow.call($ul);
+            $ul.animate(o.animation,o.speed,function(){ sf.IE7fix.call($ul); o.onShow.call($ul); });
+            return this;
+        }
+    });
+     
+     
+ 
+})(jQuery);
+
+placeholders for Jquery.
+
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('.inputfield').each(function(){
+           $(this).val('');
+           add_placeholder($(this));
+       })
+ 
+       $('.inputfield').focus(function(){
+           remove_placeholder($(this));
+       }).blur(function(){
+           add_placeholder($(this));
+       }).blur();
+    });
+ 
+   function add_placeholder(field)
+   {
+       var placeholder = field.attr('name');
+       if(field.val() == '')
+       {
+            field.val(placeholder);
+            field.addClass('placeholder');
+       }
+   }
+ 
+   function remove_placeholder(field)
+   {
+       var placeholder = field.attr('name');
+       if(field.val() == placeholder)
+       {
+            field.val('');
+            field.removeClass('placeholder');
+       }
+   }
+     
+</script>
+check for jquery to load
+function jqueryLoaded() {
+    //do stuff
+}
+ 
+function checkJquery() {
+    if (window.jQuery &amp;&amp; jQuery.ui) {
+        jqueryLoaded();
+    } else {
+        window.setTimeout(checkJquery, 100);
+    }
+}
+ 
+checkJquery();
+=================================================================
+jQuery(function() {
+ 
+    var menu_speed = 175;
+    var submenu_top = "17px";
+    var submenu_top_from = "22px";
+ 
+    jQuery('#mainMenu LI').hover(function() {
+         
+        var elem = jQuery(this).find('.sub_menu_wrapper');
+         
+            elem.show();
+            elem.css('top', submenu_top_from);
+            elem.stop(true, false).animate({
+                top: submenu_top,
+                opacity : 1
+                }, { queue:false, duration: menu_speed });
+            //elem.fadeTo(menu_speed, 1);
+        
+    }, function() {
+         
+        var elem = jQuery(this).find('.sub_menu_wrapper');
+         
+        //elem.show();
+        elem.css('top', submenu_top);
+        elem.animate({
+            top: submenu_top_from,
+            opacity : 0
+            }, { queue:false, duration: menu_speed });
+        elem.stop(true, false).fadeTo(menu_speed, 0, function() {
+            elem.hide();
+            }); 
+    });
+ 
+});
+===================================================================
+SCROLL TO TOP
+
+$('#someAnchor').click(function() {
+    $('html, body').animate({ scrollTop:0 }, 'fast');
+    return false;
+});
+
+======================================================================
+Images Loaded Jquery plugin
+
+$.fn.imagesLoaded = function(callback){
+  var elems = this.filter('img'),
+      len = elems.length;
+       
+  elems.bind('load',function(){
+      if (--len <= 0){
+         //console.log(elems, this);
+         callback.call(elems,this); }
+  }).each(function(){
+     // cached images don't fire load sometimes, so we reset src.
+     if (this.complete || this.complete === undefined){
+        var src = this.src;
+        // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
+        // data uri bypasses webkit log warning (thx doug jones)
+        this.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+        this.src = src;
+     }
+  });
+ 
+  return this;
+};
+===========================================================================
+Jquery center content to page
+
+
+Query.fn.center = function () {
+this.css("position","absolute");
+this.css("top", ( $(window).height() - this.height() ) / $(window).scrollTop() + "px");
+this.css("left", ( $(window).width() - this.width() ) / $(window).scrollLeft() + "px");
+return this;
+}
+
+
+===================================
+Add scrollbar to Jquery
+
+<div id="dialog" class="flora" title="Remove Person" style="overflow-y: auto;height: 200px;">
+
+  <p>some content</p>
+</div>
+
+
+=======================
+
+jQuery toggle item
+
+var visible = $(this).next('div.info').toggle().is("visible");
+if(visible){
+  alert("Hey! I've just showed up here!");
+  
+  ====================
+  
+  Jquery Flash Template
+  
+  var visible = $(this).next('div.info').toggle().is("visible");
+if(visible){
+  alert("Hey! I've just showed up here!");
+}
+==========================
+Jquery advanced Menu
+
+$("#ukn-topbar li.ukn-subnav").load("/menu", "", function(responseText, textStatus, XMLHttpRequest){
+            //alert(' - textStatus:' + textStatus +' - status: '+ XMLHttpRequest.status);
+            if (responseText != '' &amp;&amp; textStatus == 'success' &amp;&amp; XMLHttpRequest.status == 200)
+            {
+                initMenuItem('general');
+                initMenuItem('music');
+                initMenuItem('fashion');
+                initMenuItem('film');
+                initMenuItem('tv');
+                initMenuItem('sport');
+            } else {
+                //alert(' - textStatus:' + textStatus +' - status: '+ XMLHttpRequest.status);
+            }
+        }
+    );
+     
+    function initMenuItem(cat_name) {
+        $("#ukn-topbar ul li.ukn-subnav ul").hide();
+        $("#ukn-topbar ul li.ukn-subnav").show();
+        $("#ukn-topbar ul li.ukn-cat-" + cat_name).append("<a class='ukn-subnav-trigger' href='#' title='Expand " + cat_name + "'>Open</a>");
+         
+        $("#ukn-topbar ul li.ukn-cat-" + cat_name + " a.ukn-subnav-trigger").click(function () {
+            if ($(this).hasClass('ukn-active')) {
+                $("#ukn-topbar ul li a.ukn-subnav-trigger").removeClass("ukn-inactive");
+                $(this).removeClass("ukn-active").html('Open');
+                $("#ukn-topbar ul li.ukn-subnav ul.ukn-subnav-"+ cat_name).hide();
+            } else if ($(this).hasClass('ukn-inactive')) {
+                $("#ukn-topbar ul li a.ukn-subnav-trigger").removeClass('ukn-active').addClass("ukn-inactive").html('Open');
+                $(this).addClass("ukn-active").removeClass("ukn-inactive").html('Close');
+                $("#ukn-topbar ul li.ukn-subnav ul:visible").hide();
+                $("#ukn-topbar ul li.ukn-subnav ul.ukn-subnav-"+ cat_name).show();
+            } else {
+                $(this).addClass("ukn-active").html('Close');
+                $("#ukn-topbar ul li a.ukn-subnav-trigger:not('.ukn-active')").addClass("ukn-inactive");
+                $("#ukn-topbar ul li.ukn-subnav ul.ukn-subnav-"+ cat_name).show();
+            }
+        });
+    }
+===============================
+Scroll top Jquery
+
+$(document).ready(function(){
+    $(".scroll").click(function(event){
+        //prevent the default action for the click event
+        event.preventDefault();
+  
+        //get the full url - like mysitecom/index.htm#home
+        var full_url = this.href;
+  
+        //split the url by # and get the anchor target name - home in mysitecom/index.htm#home
+        var parts = full_url.split("#");
+        var trgt = parts[1];
+  
+        //get the top offset of the target anchor
+        var target_offset = $("#"+trgt).offset();
+        var target_top = target_offset.top;
+  
+        //goto that anchor by setting the body scroll top to anchor top
+        $('html, body').animate({scrollTop:target_top}, 500);
+    });
+});
+=======
+	
+}

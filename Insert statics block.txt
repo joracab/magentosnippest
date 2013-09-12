@@ -1,0 +1,24 @@
+/* There are three ways to insert static blocks into magento templates */
+ 
+/* 1.Inserting into example-template.phtml */
+ 
+<?php
+     echo  $this->getLayout()->createBlock('cms/block')->setBlockId('MyCustomCMSPage')->toHtml() ;
+?>
+ 
+ 
+/* 2. Inserting into CMS */
+ 
+{{block type="cms/block" block_id="MyCustomCMSPage" template="cms/example-template.phtml"}}
+ 
+/* 3. Inserting into layout.xml */
+ 
+    <layout>
+    <example>
+    <reference name="content">
+     <block type="cms/block" name="cms_store_check">
+     <action method="setBlockId"><block_id>MyCustomCMSPage</block_id></action>
+     </block>
+     </reference>
+     </example>
+    </layout>

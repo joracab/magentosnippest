@@ -1,0 +1,1 @@
+<?php echo $this->getLayout()->createBlock('Mage_Adminhtml_Block_Template', 'block-name')->setData('template', 'callouts/your-file.phtml')->toHtml() ?>

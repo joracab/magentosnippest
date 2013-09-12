@@ -1,0 +1,15 @@
+if (isset($_FILES['logo']['name']) &amp;&amp; $_FILES['logo']['name'] != '') {
+    try {
+        $uploader = new Varien_File_Uploader('logo');
+        $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png'));
+        $uploader->setAllowRenameFiles(false);
+        $uploader->setFilesDispersion(false);
+        $path = Mage::getBaseDir('media') . DS;
+        // $path = Mage::getBaseDir('media') . DS . 'logo' . DS;
+        $logoName = $_FILES['logo']['name'];
+        $uploader->save($path, $logoName);
+  
+    } catch (Exception $e) {
+  
+    }
+}

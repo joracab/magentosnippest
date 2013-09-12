@@ -1,0 +1,266 @@
+# remove customers
+DELETE FROM `magento_customer_entity`;
+DELETE FROM `magento_customer_entity_datetime`;
+DELETE FROM `magento_customer_entity_decimal`;
+DELETE FROM `magento_customer_entity_int`;
+DELETE FROM `magento_customer_entity_text`;
+DELETE FROM `magento_customer_entity_varchar`;
+# or
+DELETE FROM `customer_entity`;
+DELETE FROM `customer_entity_datetime`;
+DELETE FROM `customer_entity_decimal`;
+DELETE FROM `customer_entity_int`;
+DELETE FROM `customer_entity_text`;
+DELETE FROM `customer_entity_varchar`;
+ 
+ 
+# remove customer addresses
+DELETE FROM `magento_customer_address_entity`;
+DELETE FROM `magento_customer_address_entity_datetime`;
+DELETE FROM `magento_customer_address_entity_decimal`;
+DELETE FROM `magento_customer_address_entity_int`;
+DELETE FROM `magento_customer_address_entity_text`;
+DELETE FROM `magento_customer_address_entity_varchar`;
+# or
+DELETE FROM `customer_address_entity`;
+DELETE FROM `customer_address_entity_datetime`;
+DELETE FROM `customer_address_entity_decimal`;
+DELETE FROM `customer_address_entity_int`;
+DELETE FROM `customer_address_entity_text`;
+DELETE FROM `customer_address_entity_varchar`;
+ 
+ 
+# remove categories
+DELETE FROM `magento_catalog_category_entity` WHERE `entity_id` > 2;
+DELETE FROM `magento_catalog_category_entity_datetime` WHERE `entity_id` > 2;
+DELETE FROM `magento_catalog_category_entity_decimal` WHERE `entity_id` > 2;
+DELETE FROM `magento_catalog_category_entity_int` WHERE `entity_id` > 2;
+DELETE FROM `magento_catalog_category_entity_text` WHERE `entity_id` > 2;
+DELETE FROM `magento_catalog_category_product` WHERE `category_id` > 2;
+DELETE FROM `magento_catalog_category_flat_store_1` WHERE `entity_id` > 2;
+# or
+DELETE FROM `catalog_category_entity` WHERE `entity_id` > 2;
+DELETE FROM `catalog_category_entity_datetime` WHERE `entity_id` > 2;
+DELETE FROM `catalog_category_entity_decimal` WHERE `entity_id` > 2;
+DELETE FROM `catalog_category_entity_int` WHERE `entity_id` > 2;
+DELETE FROM `catalog_category_entity_text` WHERE `entity_id` > 2;
+DELETE FROM `catalog_category_product` WHERE `category_id` > 2;
+DELETE FROM `catalog_category_flat_store_1` WHERE `entity_id` > 2;
+ 
+ 
+# remove cms pages
+DELETE FROM `magento_cms_page` WHERE `page_id` >= 7
+DELETE FROM `magento_cms_page_store` WHERE `page_id` >= 7
+# or
+DELETE FROM `cms_page` WHERE `page_id` >= 7
+DELETE FROM `cms_page_store` WHERE `page_id` >= 7
+ 
+ 
+# remove products
+DELETE FROM `magento_catalog_category_product`;
+DELETE FROM `magento_catalog_category_product_index`;
+DELETE FROM `magento_catalog_category_product_index_enbl_idx`;
+DELETE FROM `magento_catalog_category_product_index_enbl_tmp`;
+DELETE FROM `magento_catalog_category_product_index_enbl_tmp`;
+DELETE FROM `magento_catalog_category_product_index_tmp`;
+DELETE FROM `magento_catalog_product_bundle_option`;
+DELETE FROM `magento_catalog_product_bundle_option_value`;
+DELETE FROM `magento_catalog_product_bundle_price_index`;
+DELETE FROM `magento_catalog_product_bundle_selection`;
+DELETE FROM `magento_catalog_product_bundle_selection_price`;
+DELETE FROM `magento_catalog_product_bundle_stock_index`;
+DELETE FROM `magento_catalog_product_enabled_index`;
+DELETE FROM `magento_catalog_product_entity`;
+DELETE FROM `magento_catalog_product_entity_datetime`;
+DELETE FROM `magento_catalog_product_entity_decimal`;
+DELETE FROM `magento_catalog_product_entity_gallery`;
+DELETE FROM `magento_catalog_product_entity_int`;
+DELETE FROM `magento_catalog_product_entity_media_gallery`;
+DELETE FROM `magento_catalog_product_entity_media_gallery_value`;
+DELETE FROM `magento_catalog_product_entity_text`;
+DELETE FROM `magento_catalog_product_entity_tier_price`;
+DELETE FROM `magento_catalog_product_entity_varchar`;
+DELETE FROM `magento_catalog_product_index_eav`;
+DELETE FROM `magento_catalog_product_index_eav_decimal`;
+DELETE FROM `magento_catalog_product_index_eav_decimal_idx`;
+DELETE FROM `magento_catalog_product_index_eav_decimal_tmp`;
+DELETE FROM `magento_catalog_product_index_eav_idx`;
+DELETE FROM `magento_catalog_product_index_eav_tmp`;
+DELETE FROM `magento_catalog_product_index_price`;
+DELETE FROM `magento_catalog_product_index_price_bundle_idx`;
+DELETE FROM `magento_catalog_product_index_price_bundle_opt_idx`;
+DELETE FROM `magento_catalog_product_index_price_bundle_opt_tmp`;
+DELETE FROM `magento_catalog_product_index_price_bundle_sel_idx`;
+DELETE FROM `magento_catalog_product_index_price_bundle_sel_tmp`;
+DELETE FROM `magento_catalog_product_index_price_bundle_tmp`;
+DELETE FROM `magento_catalog_product_index_price_cfg_opt_agr_idx`;
+DELETE FROM `magento_catalog_product_index_price_cfg_opt_agr_tmp`;
+DELETE FROM `magento_catalog_product_index_price_cfg_opt_idx`;
+DELETE FROM `magento_catalog_product_index_price_cfg_opt_tmp`;
+DELETE FROM `magento_catalog_product_index_price_downlod_idx`;
+DELETE FROM `magento_catalog_product_index_price_downlod_tmp`;
+DELETE FROM `magento_catalog_product_index_price_final_idx`;
+DELETE FROM `magento_catalog_product_index_price_final_tmp`;
+DELETE FROM `magento_catalog_product_index_price_idx`;
+DELETE FROM `magento_catalog_product_index_price_opt_agr_idx`;
+DELETE FROM `magento_catalog_product_index_price_opt_agr_tmp`;
+DELETE FROM `magento_catalog_product_index_price_opt_idx`;
+DELETE FROM `magento_catalog_product_index_price_opt_tmp`;
+DELETE FROM `magento_catalog_product_index_price_tmp`;
+DELETE FROM `magento_catalog_product_index_tier_price`;
+DELETE FROM `magento_catalog_product_link`;
+DELETE FROM `magento_catalog_product_option`;
+DELETE FROM `magento_catalog_product_option_price`;
+DELETE FROM `magento_catalog_product_option_title`;
+DELETE FROM `magento_catalog_product_option_type_price`;
+DELETE FROM `magento_catalog_product_option_type_title`;
+DELETE FROM `magento_catalog_product_option_type_value`;
+DELETE FROM `magento_catalog_product_relation`;
+DELETE FROM `magento_catalog_product_super_attribute`;
+DELETE FROM `magento_catalog_product_super_attribute_label`;
+DELETE FROM `magento_catalog_product_super_attribute_pricing`;
+DELETE FROM `magento_catalog_product_super_link`;
+DELETE FROM `magento_catalog_product_website`;
+# or
+DELETE FROM `catalog_category_product`;
+DELETE FROM `catalog_category_product_index`;
+DELETE FROM `catalog_category_product_index_enbl_idx`;
+DELETE FROM `catalog_category_product_index_enbl_tmp`;
+DELETE FROM `catalog_category_product_index_enbl_tmp`;
+DELETE FROM `catalog_category_product_index_tmp`;
+DELETE FROM `catalog_product_bundle_option`;
+DELETE FROM `catalog_product_bundle_option_value`;
+DELETE FROM `catalog_product_bundle_price_index`;
+DELETE FROM `catalog_product_bundle_selection`;
+DELETE FROM `catalog_product_bundle_selection_price`;
+DELETE FROM `catalog_product_bundle_stock_index`;
+DELETE FROM `catalog_product_enabled_index`;
+DELETE FROM `catalog_product_entity`;
+DELETE FROM `catalog_product_entity_datetime`;
+DELETE FROM `catalog_product_entity_decimal`;
+DELETE FROM `catalog_product_entity_gallery`;
+DELETE FROM `catalog_product_entity_int`;
+DELETE FROM `catalog_product_entity_media_gallery`;
+DELETE FROM `catalog_product_entity_media_gallery_value`;
+DELETE FROM `catalog_product_entity_text`;
+DELETE FROM `catalog_product_entity_tier_price`;
+DELETE FROM `catalog_product_entity_varchar`;
+DELETE FROM `catalog_product_index_eav`;
+DELETE FROM `catalog_product_index_eav_decimal`;
+DELETE FROM `catalog_product_index_eav_decimal_idx`;
+DELETE FROM `catalog_product_index_eav_decimal_tmp`;
+DELETE FROM `catalog_product_index_eav_idx`;
+DELETE FROM `catalog_product_index_eav_tmp`;
+DELETE FROM `catalog_product_index_price`;
+DELETE FROM `catalog_product_index_price_bundle_idx`;
+DELETE FROM `catalog_product_index_price_bundle_opt_idx`;
+DELETE FROM `catalog_product_index_price_bundle_opt_tmp`;
+DELETE FROM `catalog_product_index_price_bundle_sel_idx`;
+DELETE FROM `catalog_product_index_price_bundle_sel_tmp`;
+DELETE FROM `catalog_product_index_price_bundle_tmp`;
+DELETE FROM `catalog_product_index_price_cfg_opt_agr_idx`;
+DELETE FROM `catalog_product_index_price_cfg_opt_agr_tmp`;
+DELETE FROM `catalog_product_index_price_cfg_opt_idx`;
+DELETE FROM `catalog_product_index_price_cfg_opt_tmp`;
+DELETE FROM `catalog_product_index_price_downlod_idx`;
+DELETE FROM `catalog_product_index_price_downlod_tmp`;
+DELETE FROM `catalog_product_index_price_final_idx`;
+DELETE FROM `catalog_product_index_price_final_tmp`;
+DELETE FROM `catalog_product_index_price_idx`;
+DELETE FROM `catalog_product_index_price_opt_agr_idx`;
+DELETE FROM `catalog_product_index_price_opt_agr_tmp`;
+DELETE FROM `catalog_product_index_price_opt_idx`;
+DELETE FROM `catalog_product_index_price_opt_tmp`;
+DELETE FROM `catalog_product_index_price_tmp`;
+DELETE FROM `catalog_product_index_tier_price`;
+DELETE FROM `catalog_product_link`;
+DELETE FROM `catalog_product_option`;
+DELETE FROM `catalog_product_option_price`;
+DELETE FROM `catalog_product_option_title`;
+DELETE FROM `catalog_product_option_type_price`;
+DELETE FROM `catalog_product_option_type_title`;
+DELETE FROM `catalog_product_option_type_value`;
+DELETE FROM `catalog_product_relation`;
+DELETE FROM `catalog_product_super_attribute`;
+DELETE FROM `catalog_product_super_attribute_label`;
+DELETE FROM `catalog_product_super_attribute_pricing`;
+DELETE FROM `catalog_product_super_link`;
+DELETE FROM `catalog_product_website`;
+ 
+ 
+# remove orders, invoices, quotes and shipments
+DELETE FROM `magento_sales_flat_creditmemo`;
+DELETE FROM `magento_sales_flat_creditmemo_comment`;
+DELETE FROM `magento_sales_flat_creditmemo_grid`;
+DELETE FROM `magento_sales_flat_creditmemo_item`;
+DELETE FROM `magento_sales_flat_invoice`;
+DELETE FROM `magento_sales_flat_invoice_comment`;
+DELETE FROM `magento_sales_flat_invoice_grid`;
+DELETE FROM `magento_sales_flat_invoice_item`;
+DELETE FROM `magento_sales_flat_order`;
+DELETE FROM `magento_sales_flat_order_address`;
+DELETE FROM `magento_sales_flat_order_grid`;
+DELETE FROM `magento_sales_flat_order_item`;
+DELETE FROM `magento_sales_flat_order_payment`;
+DELETE FROM `magento_sales_flat_order_status_history`;
+DELETE FROM `magento_sales_flat_quote`;
+DELETE FROM `magento_sales_flat_quote_address`;
+DELETE FROM `magento_sales_flat_quote_address_item`;
+DELETE FROM `magento_sales_flat_quote_item`;
+DELETE FROM `magento_sales_flat_quote_item_option`;
+DELETE FROM `magento_sales_flat_quote_payment`;
+DELETE FROM `magento_sales_flat_quote_shipping_rate`;
+DELETE FROM `magento_sales_flat_shipment`;
+DELETE FROM `magento_sales_flat_shipment_comment`;
+DELETE FROM `magento_sales_flat_shipment_grid`;
+DELETE FROM `magento_sales_flat_shipment_item`;
+DELETE FROM `magento_sales_flat_shipment_track`;
+DELETE FROM `magento_sales_invoiced_aggregated`;
+DELETE FROM `magento_sales_invoiced_aggregated_order`;
+DELETE FROM `magento_sales_order_aggregated_created`;
+#DELETE FROM `magento_sales_order_aggregated_updated`;
+DELETE FROM `magento_sales_order_tax`;
+#DELETE FROM `magento_sales_order_tax_item`;
+DELETE FROM `magento_sales_payment_transaction`;
+DELETE FROM `magento_sales_refunded_aggregated`;
+DELETE FROM `magento_sales_refunded_aggregated_order`;
+DELETE FROM `magento_sales_shipping_aggregated`;
+DELETE FROM `magento_sales_shipping_aggregated_order`;
+# or
+DELETE FROM `sales_flat_creditmemo`;
+DELETE FROM `sales_flat_creditmemo_comment`;
+DELETE FROM `sales_flat_creditmemo_grid`;
+DELETE FROM `sales_flat_creditmemo_item`;
+DELETE FROM `sales_flat_invoice`;
+DELETE FROM `sales_flat_invoice_comment`;
+DELETE FROM `sales_flat_invoice_grid`;
+DELETE FROM `sales_flat_invoice_item`;
+DELETE FROM `sales_flat_order`;
+DELETE FROM `sales_flat_order_address`;
+DELETE FROM `sales_flat_order_grid`;
+DELETE FROM `sales_flat_order_item`;
+DELETE FROM `sales_flat_order_payment`;
+DELETE FROM `sales_flat_order_status_history`;
+DELETE FROM `sales_flat_quote`;
+DELETE FROM `sales_flat_quote_address`;
+DELETE FROM `sales_flat_quote_address_item`;
+DELETE FROM `sales_flat_quote_item`;
+DELETE FROM `sales_flat_quote_item_option`;
+DELETE FROM `sales_flat_quote_payment`;
+DELETE FROM `sales_flat_quote_shipping_rate`;
+DELETE FROM `sales_flat_shipment`;
+DELETE FROM `sales_flat_shipment_comment`;
+DELETE FROM `sales_flat_shipment_grid`;
+DELETE FROM `sales_flat_shipment_item`;
+DELETE FROM `sales_flat_shipment_track`;
+DELETE FROM `sales_invoiced_aggregated`;
+DELETE FROM `sales_invoiced_aggregated_order`;
+DELETE FROM `sales_order_aggregated_created`;
+#DELETE FROM `sales_order_aggregated_updated`;
+DELETE FROM `sales_order_tax`;
+#DELETE FROM `sales_order_tax_item`;
+DELETE FROM `sales_payment_transaction`;
+DELETE FROM `sales_refunded_aggregated`;
+DELETE FROM `sales_refunded_aggregated_order`;
+DELETE FROM `sales_shipping_aggregated`;
+DELETE FROM `sales_shipping_aggregated_order`;

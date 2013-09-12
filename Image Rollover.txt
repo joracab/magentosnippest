@@ -1,0 +1,28 @@
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+?>
+<p class="product-image">
+    <?php
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(220).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" id="main_image" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</p>
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+    <h4><?php echo $this->__('Click Images') ?></h4>
+    <ul>
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+        <li>        
+           
+          <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'main_image', $_image->getFile())->resize(220); ?>" title="<?php echo $_product->getName();?>" onmouseover="this.prevsrc=$('main_image').src; $('main_image').src = this.href;" onmouseout="$('main_image').src=this.prevsrc;" onclick="return false;" >
+            <!-- The below should remain the same as before -->
+          <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(56, 56); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+           
+        </a>
+         
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

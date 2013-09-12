@@ -1,0 +1,11 @@
+$category = new Mage_Catalog_Model_Category();
+      $category->load(3); // this is category id
+       
+              $collection = $category->getProductCollection();
+           
+              $collection = Mage::getResourceModel('catalog/product_collection');
+             
+            Mage::getModel('catalog/layer')->prepareProductCollection($collection);
+            $collection->getSelect()->order('rand()'); //this orders them randomly and is optional
+            $collection->setPage(1,1); //this sets the number of items. set the 2nd parameter to increase the number, it is currently set as 1
+            $_productCollection= $collection->addStoreFilter();

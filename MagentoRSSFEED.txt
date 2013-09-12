@@ -1,0 +1,4 @@
+
+<?php if($this->IsRssCatalogEnable() &amp;&amp; $this->IsTopCategory()): ?>
+        <a href="<?php echo $this->getRssLink() ?>" class="link-feed right"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php endif; ?>

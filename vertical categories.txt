@@ -1,0 +1,49 @@
+this code works for vertical navigation categoryâ?¦
+ 
+<?php 
+ 
+/**
+ 
+ * Top menu for store
+ 
+ *
+ 
+ * @see Mage_Catalog_Block_Navigation
+ 
+ */
+ 
+?>
+ 
+  
+ 
+<div class=â??box_mini_vertâ??>
+ Vertical Categories 
+    <div id=â??vertical-nav-container â??>
+ 
+<?php foreach ($this->getStoreCategories() as $_category): ?>
+ 
+<?php foreach ($this->getCurrentChildCategories() as $_categories): ?>
+ 
+/*in this line $_categories->getUrl() is present so you can get link of your categories*/
+ 
+ <ul class=â??vert_left_list_styleâ??>
+ 
+<li><b><?php echo â??<br/>â?? ?><a href=â??<?php echo $_categories->getUrl() ?>â??><?php echo $_categories->getName(); ?></a></b></li>
+ 
+       </ul>
+ 
+        <ul>
+ 
+        <?php foreach ($_categories->getChildren() as $childcategory):?>
+ 
+        <?php echo $this->drawItem($childcategory) ?>
+ 
+     <?php endforeach; ?>
+ 
+       </ul>    
+ 
+<?php endforeach; ?>
+ 
+    </div>
+ 
+</div>
